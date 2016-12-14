@@ -1,10 +1,54 @@
+/* CSS RESET */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+/* END CSS RESET */
+
 .activity-feed {
   
 }
 
+.media-item {
+    
+}
+
+.media-item > .marker {
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  text-align: center;
+  padding-top: .4em;
+}
+
+.media-item > .marker.-red {
+  background-color: #E54C3B;
+}
+
+.media-item > .marker.-yellow {
+  background-color: #F29C1E;
+}
+
+.media-item > .marker.-green { 
+  background-color: #26B894;
+}
+
+.media-item > .content {
+  color: #999;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+}
 
 @media all and (max-width: 767px) {
-    .activity-feed {
+  .activity-feed {
         
-    }
-} 
+  }
+
+  .media-item {
+
+  }
+}
