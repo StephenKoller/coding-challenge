@@ -1,3 +1,10 @@
 .activity-feed {
   
 }
+
+
+@media all and (max-width: 767px) {
+    .activity-feed {
+        
+    }
+} 
