@@ -21,8 +21,24 @@ ol, ul {
 }
 /* END CSS RESET */
 
+/* MAIN STYLES (Using RSCSS guidelines: http://rscss.io/) */
+html, body {
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+a, a:link {
+  color: #3D99D6;
+  text-decoration: none;
+}
+
+.activity-feed {
+  padding: 15px;
+}
+
 .media-item {
-    
+  float: left;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .media-item > .marker {
@@ -31,33 +47,90 @@ ol, ul {
   width: 30px;
   border-radius: 4px;
   text-align: center;
-  padding-top: .4em;
+  font-weight: 600;
+  padding-top: 6px;
+  float: left;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .media-item > .marker.-red {
-  background-color: #E54C3B;
+  background-color: #e54c3b;
 }
 
 .media-item > .marker.-yellow {
-  background-color: #F29C1E;
+  background-color: #f29c1e;
 }
 
 .media-item > .marker.-green { 
-  background-color: #26B894;
+  background-color: #26b894;
 }
 
 .media-item > .content {
-  color: #999;
-  border: 1px solid #E6E6E6;
+  float: left;
+  width: calc(100% - 65px);
+  padding: 15px;
+  margin: 0 0 0 25px;
+  border: 1px solid #e6e6e6;
   border-radius: 4px;
+  color: #999;
+  position: relative;
+}
+
+.media-item > .content::before {
+    content: '';
+    width: 2px;
+    height: calc(100% - 30px);
+    background-color: #ddd;
+    position: absolute;
+    left: -47px;
+    top: 35px;
+}
+
+.media-item:last-of-type > .content::before {
+    display: none;
+}
+
+.media-item > .content > .time {
+    color: #4e4e4e;
+    font-size: 14px;
+    font-weight: 500;
+    float: right;
+}
+
+.media-item > .content > .headline {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 7px 0;
+    line-height: 1.25em;
+    color: #303030;
+}
+
+.media-item > .content > .maintext {
+    font-size: 14px;
+    color: #9b9b9b;
+    font-weight: 300;
+    line-height: 1.5em;
 }
 
 @media all and (max-width: 767px) {
   .activity-feed {
-        
+    width: 100vw;
   }
 
-  .media-item {
+  .media-item > .content {
+    margin: 0 0 0 10px;
+  }
 
+  .media-item > .content::before {
+    left: -27px;
+  }
+
+  .media-item > .content > .time {
+    float: none;
+  }
+
+  .media-item > .content > .headline {
+    margin: 5px 0 7px 0;
   }
 }
