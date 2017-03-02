@@ -10,11 +10,11 @@ angular
       // setup base route
       $stateProvider
         .state('home', {
-            url: '/',
-            templateUrl: 'app/components/home.view.html',
-            controller: 'HomeController as vm'
+          url: '/',
+          templateUrl: 'app/components/home/home.view.html',
+          controller: 'HomeController as vm'
         });
-      
+
   })
 
   .run(function() {

@@ -1,3 +1,5 @@
+<h1>👋 Welcome to Grapeviin! 🍇</h1>
+
 Add a link:
 <input type="text" ng-model="newLinkText">
 <button ng-click="vm.addLink(newLinkText)">+</button>
@@ -16,7 +18,7 @@ Add a link:
             <td>
               <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
               <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
-              <a href="#" ng-hide="link.editing">{{link.text}}</a>
+              <a ui-sref="landing({link: '{{link.text}}'})" ng-hide="link.editing">{{link.text}}</a>
             </td>
             <td>{{link.clicks}}</td>
             <td><a href="#" ng-click="vm.editLink($index)">Edit</a></td>
