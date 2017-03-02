@@ -73,7 +73,6 @@ a, a:link {
   margin: 0 0 0 25px;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
-  color: #999;
   position: relative;
 }
 
@@ -92,23 +91,26 @@ a, a:link {
 }
 
 .media-item > .content > .time {
-    color: #4e4e4e;
+    color: #000;
+    opacity: .7;
     font-size: 14px;
     font-weight: 500;
     float: right;
 }
 
 .media-item > .content > .headline {
+    color: #000;
+    opacity: .87;
     font-size: 16px;
     font-weight: 600;
     margin: 0 0 7px 0;
     line-height: 1.25em;
-    color: #303030;
 }
 
 .media-item > .content > .maintext {
+    color: #000;
+    opacity: .54;
     font-size: 14px;
-    color: #9b9b9b;
     font-weight: 300;
     line-height: 1.5em;
 }
