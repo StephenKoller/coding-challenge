@@ -1,0 +1,20 @@
+{
+  "name": "Grapeviin",
+  "version": "0.1.0",
+  "description": "Organic, non-GMO referrals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenKoller/coding-challenge.git"
+  },
+  "author": "Stephen Koller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephenKoller/coding-challenge/issues"
+  },
+  "homepage": "https://github.com/StephenKoller/coding-challenge#readme",
+  "dependencies": {}
+}
