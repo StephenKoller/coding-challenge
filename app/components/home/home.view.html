@@ -14,7 +14,7 @@ Add a link:
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="link in vm.links track by $index">
+        <tr ng-repeat="link in vm.LinkService.links track by $index">
             <td>
               <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
               <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
