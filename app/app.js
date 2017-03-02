@@ -13,8 +13,13 @@ angular
           url: '/',
           templateUrl: 'app/components/home/home.view.html',
           controller: 'HomeController as vm'
+        })
+        // landing page route
+        .state('landing', {
+          url: '/landing/?link=',
+          templateUrl: 'app/components/landing/landing.view.html',
+          controller: 'LandingController as vm'
         });
-
   })
 
   .run(function() {
