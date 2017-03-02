@@ -19,4 +19,10 @@ angular.module('grapeviin')
       clicks: 0
     });
   };
+
+  vm.removeLink = function(index) {
+    if (index > -1) {
+      vm.links.splice(index, 1);
+    }
+  };
 });
