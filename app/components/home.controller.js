@@ -6,17 +6,20 @@ angular.module('grapeviin')
     {
       text: 'foo',
       clicks: 0,
+      editing: false,
     },
     {
       text: 'bar',
       clicks: 1,
+      editing: false,
     }
   ];
 
   vm.addLink = function(text) {
     vm.links.push({
       text: text,
-      clicks: 0
+      clicks: 0,
+      editing: false,
     });
   };
 
@@ -24,5 +27,14 @@ angular.module('grapeviin')
     if (index > -1) {
       vm.links.splice(index, 1);
     }
+  };
+
+  vm.editLink = function(index) {
+    vm.links[index].editing = true;
+  };
+
+  vm.saveLink = function(index, text) {
+    vm.links[index].editing = false;
+    vm.links[index].text = text;
   };
 });

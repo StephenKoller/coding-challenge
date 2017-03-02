@@ -1,6 +1,6 @@
 Add a link:
-<input type="text" ng-model="linkText">
-<button ng-click="vm.addLink(linkText)">+</button>
+<input type="text" ng-model="newLinkText">
+<button ng-click="vm.addLink(newLinkText)">+</button>
 
 <table>
     <thead>
@@ -13,9 +13,13 @@ Add a link:
     </thead>
     <tbody>
         <tr ng-repeat="link in vm.links">
-            <td><a href="#">{{link.text}}</a></td>
+            <td>
+              <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
+              <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
+              <a href="#" ng-hide="link.editing">{{link.text}}</a>
+            </td>
             <td>{{link.clicks}}</td>
-            <td>Edit</td>
+            <td><a href="#" ng-click="vm.editLink($index)">Edit</a></td>
             <td><a href="#" ng-click="vm.removeLink($index)">Delete</a></td>
         </tr>
     </tbody>
