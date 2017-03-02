@@ -1,1 +1,22 @@
-<h1>Grow the web with referrals!</h1>
+Add a link:
+<input type="text">
+<button>+</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Link title</th>
+            <th>Clicks</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in vm.list">
+            <td><a href="#">{{item.text}}</a></td>
+            <td>{{item.clicks}}</td>
+            <td>Edit</td>
+            <td><a href="#">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
