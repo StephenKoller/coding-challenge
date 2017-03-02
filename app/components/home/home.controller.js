@@ -3,17 +3,24 @@ angular.module('grapeviin')
   var vm = this;
 
   vm.links = [
-    {
-      text: 'foo',
-      clicks: 0,
-      editing: false,
-    },
-    {
-      text: 'bar',
-      clicks: 1,
-      editing: false,
+        {
+          text: 'foo',
+          clicks: 0,
+          editing: false,
+        },
+        {
+          text: 'bar',
+          clicks: 1,
+          editing: false,
+        }
+      ];
+
+  vm.init = function() {
+    var localLinks = localStorage.getItem('links');
+    if(localLinks != null) {
+      vm.links = JSON.parse(localLinks);
     }
-  ];
+  };
 
   vm.addLink = function(text) {
     vm.links.push({
@@ -21,12 +28,15 @@ angular.module('grapeviin')
       clicks: 0,
       editing: false,
     });
+
+    vm.updateLocalLinks();
   };
 
   vm.removeLink = function(index) {
     if (index > -1) {
       vm.links.splice(index, 1);
     }
+    vm.updateLocalLinks();
   };
 
   vm.editLink = function(index) {
@@ -34,7 +44,15 @@ angular.module('grapeviin')
   };
 
   vm.saveLink = function(index, text) {
-    vm.links[index].editing = false;
-    vm.links[index].text = text;
+    var link = vm.links[index];
+    link.editing = false;
+    link.text = text;
+    vm.updateLocalLinks();
   };
+
+  vm.updateLocalLinks = function() {
+    localStorage.setItem('links', JSON.stringify(vm.links));
+  };
+
+  vm.init();
 });
