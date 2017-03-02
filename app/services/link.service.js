@@ -20,6 +20,10 @@ angular.module('grapeviin')
     }
   };
 
+  service.getLinkByText = function(text) {
+    return service.links.find(function(link) { return link.text === text });
+  };
+
   service.addLink = function(text) {
     service.links.push({
       text: text,
@@ -46,6 +50,15 @@ angular.module('grapeviin')
 
   service.storeLinks = function() {
     localStorage.setItem('links', JSON.stringify(service.links));
+  };
+
+  service.incrementLink = function(link) {
+    var index = service.links.findIndex(function(el) { return el.text === link.text});
+
+    // increment the actual link click counter
+    service.links[index].clicks += 1;
+
+    service.storeLinks();
   };
 
   return service;
