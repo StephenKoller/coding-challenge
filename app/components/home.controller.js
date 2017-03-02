@@ -2,7 +2,7 @@ angular.module('grapeviin')
 .controller('HomeController', function ($stateParams) {
   var vm = this;
 
-  vm.list = [
+  vm.links = [
     {
       text: 'foo',
       clicks: 0,
@@ -12,5 +12,11 @@ angular.module('grapeviin')
       clicks: 1,
     }
   ];
-  console.log("home init");
+
+  vm.addLink = function(text) {
+    vm.links.push({
+      text: text,
+      clicks: 0
+    });
+  };
 });
