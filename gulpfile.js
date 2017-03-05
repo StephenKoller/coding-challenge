@@ -11,10 +11,10 @@ gulp.task('sass', function(done) {
   gulp.src('./assets/scss/style.scss')
     .pipe(sass())
     .on('error', sass.logError)
-    .pipe(gulp.dest('./assets/css/'))
+    .pipe(gulp.dest('./public/css/'))
     .pipe(cleanCss({compatibility: '*'}))
     .pipe(rename({ extname: '.min.css'}))
-    .pipe(gulp.dest('./assets/css/'))
+    .pipe(gulp.dest('./public/css/'))
     .on('end', done);
 });
 
