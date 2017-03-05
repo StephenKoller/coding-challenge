@@ -1,0 +1,40 @@
+/* CSS RESET (Adapted from http://meyerweb.com/eric/tools/css/reset/) */
+html, body, div, h1, h2, p, a, ul, li, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1;
+  text-align: center; }
+
+ol, ul {
+  list-style: none; }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+/* END CSS RESET */
+/*
+ *  Standard Material design card
+ */
+.card {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0; }
+
+.data-table {
+  margin: 0 auto; }
+  .data-table > .head {
+    color: #000;
+    opacity: .87; }
+
+.home-page {
+  text-align: center;
+  margin-top: 30px; }
+  .home-page > .headline {
+    font-size: 36px;
+    margin: 30px; }
