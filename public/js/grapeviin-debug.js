@@ -11,13 +11,13 @@ angular
       $stateProvider
         .state('home', {
           url: '/',
-          templateUrl: 'app/components/home/home.view.html',
+          templateUrl: 'html/home/home/home.view.html',
           controller: 'HomeController as vm'
         })
         // landing page route
         .state('landing', {
           url: '/landing/?link=',
-          templateUrl: 'app/components/landing/landing.view.html',
+          templateUrl: 'html/home/landing/landing.view.html',
           controller: 'LandingController as vm'
         });
   })
@@ -25,6 +25,36 @@ angular
   .run(function() {
       console.log("Ready to drink!");
   });
+angular.module('grapeviin')
+.controller('HomeController', function ($stateParams, LinkService) {
+  var vm = this;
+
+  vm.LinkService = LinkService;
+  vm.sortType = 'clicks';
+  vm.sortReverse = true;
+
+  vm.init = function() {
+    vm.LinkService.getLinks();
+  };
+
+  vm.addLink = function(text) {
+    vm.LinkService.addLink(text);
+  };
+
+  vm.removeLink = function(index) {
+    vm.LinkService.removeLink(index);
+  };
+
+  vm.editLink = function(index) {
+    vm.LinkService.links[index].editing = true;
+  };
+
+  vm.saveLink = function(index, text) {
+    vm.LinkService.saveLink(index, text);
+  };
+
+  vm.init();
+});
 angular.module('grapeviin')
 .service('LinkService', function() {
 	var service = {
@@ -106,34 +136,4 @@ angular.module('grapeviin')
     };
 
     vm.init();
-});
-angular.module('grapeviin')
-.controller('HomeController', function ($stateParams, LinkService) {
-  var vm = this;
-
-  vm.LinkService = LinkService;
-  vm.sortType = 'clicks';
-  vm.sortReverse = true;
-
-  vm.init = function() {
-    vm.LinkService.getLinks();
-  };
-
-  vm.addLink = function(text) {
-    vm.LinkService.addLink(text);
-  };
-
-  vm.removeLink = function(index) {
-    vm.LinkService.removeLink(index);
-  };
-
-  vm.editLink = function(index) {
-    vm.LinkService.links[index].editing = true;
-  };
-
-  vm.saveLink = function(index, text) {
-    vm.LinkService.saveLink(index, text);
-  };
-
-  vm.init();
 });

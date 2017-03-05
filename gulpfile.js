@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     rename = require('gulp-rename'),
-    cleanCss = require('gulp-clean-css'),
+    replace = require('gulp-replace'),
+    cleanCss = require('gulp-clean-css'),n
     concat = require('gulp-concat'),
     minify = require('gulp-minify');
 
@@ -24,6 +25,7 @@ gulp.task('watch', ['sass'], function() {
 
 gulp.task('build', function() {
   gulp.src(['app/app.js', 'app/**/*.js'])
+    .pipe(replace('app/components','html/home'))
     .pipe(concat('grapeviin.js'))
     .pipe(minify({
         ext:{
