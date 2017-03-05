@@ -3,6 +3,8 @@ angular.module('grapeviin')
   var vm = this;
 
   vm.LinkService = LinkService;
+  vm.sortType = 'clicks';
+  vm.sortReverse = true;
 
   vm.init = function() {
     vm.LinkService.getLinks();
