@@ -16,5 +16,12 @@
     "url": "https://github.com/StephenKoller/coding-challenge/issues"
   },
   "homepage": "https://github.com/StephenKoller/coding-challenge#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "0.0.15",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0"
+  }
 }

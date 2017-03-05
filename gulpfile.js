@@ -1,7 +1,9 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var rename = require('gulp-rename');
-var cleanCss = require('gulp-clean-css');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    rename = require('gulp-rename'),
+    cleanCss = require('gulp-clean-css'),
+    concat = require('gulp-concat'),
+    minify = require('gulp-minify');
 
 gulp.task('default', ['sass']);
 
@@ -18,4 +20,16 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', ['sass'], function() {
   gulp.watch(['./app/components/**/*.scss', './assets/scss/reset.scss'], ['sass']);
+});
+
+gulp.task('build', function() {
+  gulp.src(['app/app.js', 'app/**/*.js'])
+    .pipe(concat('grapeviin.js'))
+    .pipe(minify({
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        }
+    }))
+    .pipe(gulp.dest('public/js'));
 });
