@@ -32,4 +32,7 @@ gulp.task('build', function() {
         }
     }))
     .pipe(gulp.dest('public/js'));
+
+  gulp.src(['app/components/**/*.html'])
+    .pipe(gulp.dest('public/html'));
 });
