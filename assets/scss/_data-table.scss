@@ -1,0 +1,7 @@
+.data-table {
+  margin: 0 auto;
+
+  > .head {
+    @include primary-text;
+  }
+}

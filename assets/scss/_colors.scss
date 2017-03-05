@@ -1,0 +1,11 @@
+$white: #fff;
+
+@mixin primary-text() {
+  color: #000;
+  opacity: .87;
+}
+
+@mixin secondary-text() {
+  color: #000;
+  opacity: .54;
+}

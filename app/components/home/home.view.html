@@ -1,28 +1,30 @@
-<h1>👋 Welcome to Grapeviin! 🍇</h1>
+<div class="home-page">
+    <h1 class="headline">👋 Welcome to Grapeviin! 🍇</h1>
 
-Add a link:
-<input type="text" ng-model="newLinkText">
-<button ng-click="vm.addLink(newLinkText)">+</button>
+    Add a link:
+    <input class="link-input" type="text" ng-model="newLinkText">
+    <button class="add-button" ng-click="vm.addLink(newLinkText)">+</button>
 
-<table>
-    <thead>
-        <tr>
-            <th>Link</th>
-            <th>Clicks</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="link in vm.LinkService.links track by $index">
-            <td>
-              <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
-              <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
-              <a href="/#!/landing/?link={{link.text}}" ng-hide="link.editing">{{link.text}}</a>
-            </td>
-            <td>{{link.clicks}}</td>
-            <td><a href="#" ng-click="vm.editLink($index)">Edit</a></td>
-            <td><a href="#" ng-click="vm.removeLink($index)">Delete</a></td>
-        </tr>
-    </tbody>
-</table>
+    <table class="link-table">
+        <thead class="head">
+            <tr>
+                <th>Link</th>
+                <th>Clicks</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody class="body">
+            <tr ng-repeat="link in vm.LinkService.links track by $index">
+                <td>
+                <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
+                <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
+                <a href="/#!/landing/?link={{link.text}}" ng-hide="link.editing">{{link.text}}</a>
+                </td>
+                <td>{{link.clicks}}</td>
+                <td><a href="#" ng-click="vm.editLink($index)">Edit</a></td>
+                <td><a href="#" ng-click="vm.removeLink($index)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

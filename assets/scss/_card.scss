@@ -1,0 +1,10 @@
+/*
+ *  Standard Material design card
+ */
+ $card-bg: $white;
+
+.card {
+  background-color: $card-bg;
+  border-radius: 2px;
+  box-shadow: 0;
+}
