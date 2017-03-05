@@ -14,16 +14,16 @@ angular.module('grapeviin')
     vm.LinkService.addLink(text);
   };
 
-  vm.removeLink = function(index) {
-    vm.LinkService.removeLink(index);
+  vm.removeLink = function(link) {
+    vm.LinkService.removeLink(link);
   };
 
-  vm.editLink = function(index) {
-    vm.LinkService.links[index].editing = true;
+  vm.editLink = function(link) {
+    vm.LinkService.editLink(link);
   };
 
-  vm.saveLink = function(index, text) {
-    vm.LinkService.saveLink(index, text);
+  vm.saveLink = function(link, text) {
+    vm.LinkService.saveLink(link, text);
   };
 
   vm.init();

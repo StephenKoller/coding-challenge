@@ -5,7 +5,7 @@
     <input class="link-input" type="text" ng-model="newLinkText">
     <button class="add-button" ng-click="vm.addLink(newLinkText)">+</button>
 
-    <table class="link-table">
+    <table class="data-table">
         <thead class="head">
             <tr>
                 <th>
@@ -30,12 +30,12 @@
             <tr ng-repeat="link in vm.LinkService.links | orderBy:vm.sortType:vm.sortReverse track by $index">
                 <td>
                     <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
-                    <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
+                    <button ng-if="link.editing" ng-click="vm.saveLink(link, vm.editLinkText)">Save</button>
                     <a ui-sref="landing({link: '{{link.text}}'})" ng-hide="link.editing">{{link.text}}</a>
                 </td>
                 <td>{{link.clicks}}</td>
-                <td><a href="" ng-click="vm.editLink($index)">Edit</a></td>
-                <td><a href="" ng-click="vm.removeLink($index)">Delete</a></td>
+                <td><a href="" ng-click="vm.editLink(link)">Edit</a></td>
+                <td><a href="" ng-click="vm.removeLink(link)">Delete</a></td>
             </tr>
         </tbody>
     </table>

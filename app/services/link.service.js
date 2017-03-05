@@ -33,14 +33,32 @@ angular.module('grapeviin')
     service.storeLinks();
   };
 
-  service.saveLink = function(index, text) {
+  service.editLink = function(link) {
+    var index = service.links.indexOf(link);
+
+    if (index > -1) {
+      // if an editor is already open, then close it before opening a new one
+      service.links.forEach(function(l) {
+        l.editing = false;
+      });
+
+      // turn on editing for the given link
+      service.links[index].editing = true;
+    }
+  };
+
+  service.saveLink = function(link, text) {
+    var index = service.links.indexOf(link);
+
     service.links[index].editing = false;
     service.links[index].text = text;
 
     service.storeLinks();
   }
 
-  service.removeLink = function(index) {
+  service.removeLink = function(link) {
+    var index = service.links.indexOf(link);
+
     if (index > -1) {
       service.links.splice(index, 1);
     }
