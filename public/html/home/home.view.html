@@ -1,0 +1,42 @@
+<div class="home-page">
+    <h1 class="headline">👋 Welcome to Grapeviin! 🍇</h1>
+
+    Add a link:
+    <input class="link-input" type="text" ng-model="newLinkText">
+    <button class="add-button" ng-click="vm.addLink(newLinkText)">+</button>
+
+    <table class="link-table">
+        <thead class="head">
+            <tr>
+                <th>
+                    <a href="" ng-click="vm.sortType = 'text'; vm.sortReverse = !vm.sortReverse">Link</a>
+                    <span ng-show="vm.sortType == 'text'">
+                        <span ng-if="vm.sortReverse">^</span>
+                        <span ng-if="!vm.sortReverse">v</span>
+                    </span>
+                </th>
+                <th>
+                    <a href="" ng-click="vm.sortType = 'clicks'; vm.sortReverse = !vm.sortReverse">Clicks</a>
+                    <span ng-show="vm.sortType == 'clicks'">
+                        <span ng-if="!vm.sortReverse">^</span>
+                        <span ng-if="vm.sortReverse">v</span>
+                    </span>
+                </th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody class="body">
+            <tr ng-repeat="link in vm.LinkService.links | orderBy:vm.sortType:vm.sortReverse track by $index">
+                <td>
+                    <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
+                    <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
+                    <a ui-sref="landing({link: '{{link.text}}'})" ng-hide="link.editing">{{link.text}}</a>
+                </td>
+                <td>{{link.clicks}}</td>
+                <td><a href="" ng-click="vm.editLink($index)">Edit</a></td>
+                <td><a href="" ng-click="vm.removeLink($index)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
