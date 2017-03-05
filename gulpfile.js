@@ -25,7 +25,7 @@ gulp.task('watch', ['sass'], function() {
 
 gulp.task('build', function() {
   gulp.src(['app/app.js', 'app/**/*.js'])
-    .pipe(replace('app/components','html/home'))
+    .pipe(replace('app/components','html'))
     .pipe(concat('grapeviin.js'))
     .pipe(minify({
         ext:{
