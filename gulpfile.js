@@ -20,12 +20,12 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('watch', ['sass'], function() {
-  gulp.watch(['./app/components/**/*.scss', './assets/scss/reset.scss'], ['sass']);
+  gulp.watch(['./app/pages/**/*.scss', './assets/scss/_reset.scss'], ['sass']);
 });
 
 gulp.task('build', function() {
   gulp.src(['app/app.js', 'app/**/*.js'])
-    .pipe(replace('app/components','html'))
+    .pipe(replace('app/pages','public/html'))
     .pipe(concat('grapeviin.js'))
     .pipe(minify({
         ext:{
@@ -35,6 +35,6 @@ gulp.task('build', function() {
     }))
     .pipe(gulp.dest('public/js'));
 
-  gulp.src(['app/components/**/*.html'])
+  gulp.src(['app/pages/**/*.html'])
     .pipe(gulp.dest('public/html'));
 });
