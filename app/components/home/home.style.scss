@@ -3,8 +3,11 @@
   text-align: center;
   margin-top: 30px;
   
-  > .headline {
-    font-size: 36px;
-    margin: 30px;
+  > .header {
+    > .headline {
+      font-size: 36px;
+      margin: 30px;
+    }
   }
+  
 }
