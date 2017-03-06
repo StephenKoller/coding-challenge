@@ -1,0 +1,7 @@
+.landing-page {
+  > .headline {
+    margin: 30px auto 10px;
+    font-size: 24px;
+    @include primary-text;
+  }
+}
