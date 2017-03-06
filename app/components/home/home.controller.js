@@ -4,12 +4,26 @@ angular.module('grapeviin')
   vm.LinkService = LinkService;
 
   // UI State Variables for Sorting Data Table
-  vm.sortType = 'clicks';
-  vm.sortReverse = true;
+  vm.sortOptions = {
+    sortType: 'clicks',
+    sortReverse: true
+  }
 
   // Controller Init
   vm.init = function() {
     vm.LinkService.getLinks();
+
+    var _sortOptions = localStorage.getItem('sortOptions');
+    if(_sortOptions === null || _sortOptions === '') {
+      localStorage.setItem('sortOptions', JSON.stringify(vm.sortOptions));
+    } else {
+      vm.sortOptions = JSON.parse(_sortOptions);
+    }
+  };
+
+  vm.setSortOptions = function (sortOptions) {
+    vm.sortOptions = sortOptions;
+    localStorage.setItem('sortOptions', JSON.stringify({sortType: vm.sortType, sortReverse: vm.sortReverse}));
   };
 
   // CRUD Operations - for a slim controller, pass calls to service layer
@@ -26,7 +40,10 @@ angular.module('grapeviin')
   };
 
   vm.saveLink = function(link, text) {
-    vm.LinkService.saveLink(link, text);
+    // check if text has changed before calling service
+    if(link.text !== text) {
+      vm.LinkService.saveLink(link, text);
+    }
   };
   // end CRUD Operations
 
