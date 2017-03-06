@@ -1,7 +1,13 @@
 .input-form {
   margin: 0 auto 30px;
   padding: 20px;
-  width: 80%;
+  max-width: 80vw;
+  min-width: 50vw;
+
+  > .link-input {
+    border: 0;
+    border-bottom: 1px solid #eee;
+  }
 
   > .link-input,
   > .add-button {
