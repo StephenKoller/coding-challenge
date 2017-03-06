@@ -1,0 +1,17 @@
+.input-form {
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+
+  > .link-input,
+  > .add-button {
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 2px;
+  }
+
+  > .add-button { 
+    width: 40px;
+  }
+}

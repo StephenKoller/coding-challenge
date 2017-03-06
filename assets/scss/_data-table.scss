@@ -1,7 +1,107 @@
 .data-table {
   margin: 0 auto;
+  padding: 20px;
+  width: 80%;
 
   > .head {
-    @include primary-text;
+
+    > .header {
+      height: 64px;
+      font-size: 20px;
+      text-align: left;
+      @include primary-text;
+
+      > th {
+        padding-left: 24px;
+      }
+    }
+    
+    > .row {
+        height: 48px;
+
+        > th {
+
+          > .cell-text {
+            font-weight: 500;
+            font-size: 12px;
+            text-decoration: none;
+            @include secondary-text;
+          }
+
+
+          &:first-of-type {
+            padding-left: 24px;
+          }
+
+          &:last-of-type {
+            padding-right: 24px;
+          }
+        }
+      
+      > .title {
+        text-align: left;
+      }
+
+      > .clicks,
+      > .edit,
+      > .delete {
+        text-align: right;
+      }
+    }
+  }
+
+  > .body {
+    > .row {
+        height: 48px;
+
+      > td {
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 13px;
+        @include primary-text;
+
+        &:first-of-type {
+          padding-left: 24px;
+        }
+
+        &:last-of-type {
+          padding-right: 24px;
+        }
+      }
+
+      > .clicks,
+      > .edit,
+      > .delete {
+        text-align: right;
+      }
+
+      > .title {
+        text-align: left;
+      }
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+}
+
+.caret {
+
+  &-up,
+  &-down {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &-up {
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent #999 transparent;
+  }
+
+  &-down {
+    border-width: 10px 5px 0 5px;
+    border-color: #999 transparent transparent transparent;
   }
 }

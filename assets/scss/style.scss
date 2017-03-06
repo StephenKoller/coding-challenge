@@ -1,11 +1,12 @@
 // Base / Reset
-@import './fonts';
-@import './reset';
-@import './colors';
+@import 'fonts';
+@import 'reset';
+@import 'colors';
 
 // Components
-@import './card';
-@import './data-table';
+@import 'card';
+@import 'data-table';
+@import 'input-form';
 
 // Pages
 @import '../../app/components/home/home.style';

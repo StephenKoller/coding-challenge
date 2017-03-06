@@ -1,5 +1,5 @@
 /* CSS RESET (Adapted from http://meyerweb.com/eric/tools/css/reset/) */
-html, body, div, h1, h2, p, a, ul, li, section {
+html, body, div, h1, h2, p, a, ul, li, section, table {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -11,11 +11,20 @@ html, body, div, h1, h2, p, a, ul, li, section {
 body {
   line-height: 1;
 	text-align: center;
+	background-color: #ddd;
 }
 
 ol, ul {
 	list-style: none;
 }
+
+table {
+	border-collapse: collapse;
+}
+
+// th, td {
+//     padding: 0;
+// }
 
 *, *:before, *:after {
   box-sizing: border-box;
