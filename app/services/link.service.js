@@ -30,7 +30,7 @@ angular.module('grapeviin')
       clicks: 0,
     });
 
-    service.storeLinks();
+    _storeLinks();
   };
 
   service.editLink = function(link) {
@@ -53,7 +53,7 @@ angular.module('grapeviin')
     service.links[index].editing = false;
     service.links[index].text = text;
 
-    service.storeLinks();
+    _storeLinks();
   }
 
   service.removeLink = function(link) {
@@ -63,20 +63,21 @@ angular.module('grapeviin')
       service.links.splice(index, 1);
     }
 
-    service.storeLinks();
-  };
-
-  service.storeLinks = function() {
-    localStorage.setItem('links', JSON.stringify(service.links));
+    _storeLinks();
   };
 
   service.incrementLink = function(link) {
-    var index = service.links.findIndex(function(el) { return el.text === link.text});
+    var index = service.links.indexOf(link);
 
     // increment the actual link click counter
     service.links[index].clicks += 1;
 
-    service.storeLinks();
+    _storeLinks();
+  };
+
+  // shared local method to store links array in localStorage as stringified JSON
+  var _storeLinks = function() {
+    localStorage.setItem('links', JSON.stringify(service.links));
   };
 
   return service;
