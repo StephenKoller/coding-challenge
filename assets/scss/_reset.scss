@@ -22,11 +22,11 @@ table {
 	border-collapse: collapse;
 }
 
-// th, td {
-//     padding: 0;
-// }
-
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+@mixin clearfix() {
+	clear: both;
 }
 /* END CSS RESET */
