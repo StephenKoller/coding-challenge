@@ -1,38 +1,21 @@
 angular.module('grapeviin')
-.controller('HomeController', function ($scope, $routeParams, LinkService) {
+.controller('HomeController', function ($scope, $routeParams, LinkService, SortService) {
   var vm = this;
   vm.LinkService = LinkService;
+  vm.SortService = SortService;
 
   // UI State Variables for Sorting Data Table
-  vm.sortOptions = {
-    sortType: 'clicks',
-    sortReverse: true
-  }
+  vm.sortOptions = {};
 
   // Controller Init
   vm.init = function() {
     vm.LinkService.getLinks();
-
-    var _sortOptions = localStorage.getItem('sortOptions');
-    if(_sortOptions === null || _sortOptions === '') {
-      localStorage.setItem('sortOptions', JSON.stringify(vm.sortOptions));
-    } else {
-      vm.sortOptions = JSON.parse(_sortOptions);
-    }
-  };
-
-  vm.setSortOptions = function (sortOptions) {
-    vm.sortOptions = sortOptions;
-    localStorage.setItem('sortOptions', JSON.stringify({sortType: vm.sortType, sortReverse: vm.sortReverse}));
+    vm.SortService.getOptions();
   };
 
   // CRUD Operations - for a slim controller, pass calls to service layer
   vm.addLink = function(text) {
       vm.LinkService.addLink(text);
-  };
-
-  vm.removeLink = function(link) {
-    vm.LinkService.removeLink(link);
   };
 
   vm.editLink = function(link) {
@@ -45,7 +28,16 @@ angular.module('grapeviin')
       vm.LinkService.saveLink(link, text);
     }
   };
-  // end CRUD Operations
+  
+  vm.removeLink = function(link) {
+    vm.LinkService.removeLink(link);
+  };
+
+  // Update the sorting options
+  vm.setSortOptions = function (sortOptions) {
+    vm.sortOptions = sortOptions;
+    vm.SortService.setOptions(sortOptions);
+  };
 
   vm.init();
 });

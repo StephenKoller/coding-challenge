@@ -14,19 +14,19 @@
                 <th colspan="4">Referral Links</th>
             </tr>
             <tr class="row">
-                <th class="title" ng-class="{ 'sorted': vm.sortOptions.sortType == 'text' }">
-                    <span ng-show="vm.sortOptions.sortType == 'text'">
-                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="!vm.sortOptions.sortReverse">
-                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="vm.sortOptions.sortReverse">
+                <th class="title" ng-class="{ 'sorted': vm.sortOptions.type == 'text' }">
+                    <span ng-show="vm.sortOptions.type == 'text'">
+                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="!vm.sortOptions.reverse">
+                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="vm.sortOptions.reverse">
                     </span>
-                    <a class="cell-text" href="" ng-click="vm.setSortOptions({ sortType: 'text', sortReverse: !vm.sortOptions.sortReverse})">Link</a>
+                    <a class="cell-text" href="" ng-click="vm.setSortOptions({ type: 'text', reverse: !vm.sortOptions.reverse})">Link</a>
                 </th>
-                <th class="clicks" ng-class="{ 'sorted': vm.sortOptions.sortType == 'clicks' }">
-                    <span ng-show="vm.sortOptions.sortType == 'clicks'">
-                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="vm.sortOptions.sortReverse">
-                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="!vm.sortOptions.sortReverse">
+                <th class="clicks" ng-class="{ 'sorted': vm.sortOptions.type == 'clicks' }">
+                    <span ng-show="vm.sortOptions.type == 'clicks'">
+                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="vm.sortOptions.reverse">
+                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="!vm.sortOptions.reverse">
                     </span>
-                    <a class="cell-text" href="" ng-click="vm.setSortOptions({ sortType: 'clicks', sortReverse: !vm.sortOptions.sortReverse})">Clicks</a>
+                    <a class="cell-text" href="" ng-click="vm.setSortOptions({ type: 'clicks', reverse: !vm.sortOptions.reverse})">Clicks</a>
                 </th>
                 <th class="edit">
                     <span class="cell-text">Edit</span>
@@ -37,7 +37,7 @@
             </tr>
         </thead>
         <tbody class="body">
-            <tr class="row" ng-repeat="link in vm.LinkService.links | orderBy:vm.sortOptions.sortType:vm.sortOptions.sortReverse track by $index">
+            <tr class="row" ng-repeat="link in vm.LinkService.links | orderBy:vm.sortOptions.type:vm.sortOptions.reverse track by $index">
                 <td class="title">
                     <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
                     <button ng-if="link.editing" ng-click="vm.saveLink(link, vm.editLinkText)">Save</button>
