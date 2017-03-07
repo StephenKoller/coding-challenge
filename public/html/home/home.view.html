@@ -1,41 +1,62 @@
 <div class="home-page">
-    <h1 class="headline">👋 Welcome to Grapeviin! 🍇</h1>
+    <div class="header">
+        <h1 class="headline">Grapeviin</h1>
+    </div>
 
-    Add a link:
-    <input class="link-input" type="text" ng-model="newLinkText">
-    <button class="add-button" ng-click="vm.addLink(newLinkText)">+</button>
+    <div class="card input-form">
+        <input class="link-input" type="text" ng-model="newLinkText" placeholder="Add a link..." ng-keypress="($event.which === 13)?vm.addLink(newLinkText):0">
+        <button class="add-button" ng-click="vm.addLink(newLinkText)">ADD LINK +</button>
+    </div>
 
-    <table class="link-table">
+    <table class="card data-table">
         <thead class="head">
-            <tr>
-                <th>
-                    <a href="" ng-click="vm.sortType = 'text'; vm.sortReverse = !vm.sortReverse">Link</a>
-                    <span ng-show="vm.sortType == 'text'">
-                        <span ng-if="vm.sortReverse">^</span>
-                        <span ng-if="!vm.sortReverse">v</span>
+            <tr class="header">
+                <th colspan="4">Referral Links</th>
+            </tr>
+            <tr class="row">
+                <th class="title" ng-class="{ 'sorted': vm.sortOptions.type == 'text' }">
+                    <span ng-show="vm.sortOptions.type == 'text'">
+                        <img class="arrow-down" src="../../img/svg/arrow-down.svg" ng-if="!vm.sortOptions.reverse">
+                        <img class="arrow-up" src="../../img/svg/arrow-up.svg" ng-if="vm.sortOptions.reverse">
                     </span>
+                    <a class="cell-text" href="" ng-click="vm.setSortOptions({ type: 'text', reverse: !vm.sortOptions.reverse})">Link</a>
                 </th>
-                <th>
-                    <a href="" ng-click="vm.sortType = 'clicks'; vm.sortReverse = !vm.sortReverse">Clicks</a>
-                    <span ng-show="vm.sortType == 'clicks'">
-                        <span ng-if="!vm.sortReverse">^</span>
-                        <span ng-if="vm.sortReverse">v</span>
+                <th class="clicks" ng-class="{ 'sorted': vm.sortOptions.type == 'clicks' }">
+                    <span ng-show="vm.sortOptions.type == 'clicks'">
+                        <img class="arrow-down" src="../../img/svg/arrow-down.svg" ng-if="vm.sortOptions.reverse">
+                        <img class="arrow-up" src="../../img/svg/arrow-up.svg" ng-if="!vm.sortOptions.reverse">
                     </span>
+                    <a class="cell-text" href="" ng-click="vm.setSortOptions({ type: 'clicks', reverse: !vm.sortOptions.reverse})">Clicks</a>
                 </th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th class="edit">
+                    <span class="cell-text">Edit</span>
+                </th>
+                <th class="delete">
+                    <span class="cell-text">Delete</span>
+                </th>
             </tr>
         </thead>
         <tbody class="body">
-            <tr ng-repeat="link in vm.LinkService.links | orderBy:vm.sortType:vm.sortReverse track by $index">
-                <td>
+            <tr class="row" ng-repeat="link in vm.LinkService.links | orderBy:vm.sortOptions.type:vm.sortOptions.reverse track by $index">
+                <td class="title">
                     <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
-                    <button ng-if="link.editing" ng-click="vm.saveLink($index, vm.editLinkText)">Save</button>
-                    <a ui-sref="landing({link: '{{link.text}}'})" ng-hide="link.editing">{{link.text}}</a>
+                    <button ng-if="link.editing" ng-click="vm.saveLink(link, vm.editLinkText)">Save</button>
+                    <a ng-href="#!/landing/{{link.text}}" ng-hide="link.editing">{{link.text}}</a>
                 </td>
-                <td>{{link.clicks}}</td>
-                <td><a href="" ng-click="vm.editLink($index)">Edit</a></td>
-                <td><a href="" ng-click="vm.removeLink($index)">Delete</a></td>
+                
+                <td class="clicks">
+                    {{link.clicks}}
+                </td>
+                
+                <td class="edit">
+                    <a href="" ng-click="vm.editLink(link)">Edit</a>
+                </td>
+                
+                <td class="delete">
+                    <a href="" ng-click="vm.removeLink(link)">
+                        <img src="../../img/svg/delete.svg">
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
