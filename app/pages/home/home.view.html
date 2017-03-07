@@ -1,11 +1,11 @@
 <div class="home-page">
     <div class="header">
-        <h1 class="headline">👋 Welcome to Grapeviin! 🍇</h1>
+        <h1 class="headline">Grapeviin</h1>
     </div>
 
     <div class="card input-form">
         <input class="link-input" type="text" ng-model="newLinkText" placeholder="Add a link..." ng-keypress="($event.which === 13)?vm.addLink(newLinkText):0">
-        <button class="add-button" ng-click="vm.addLink(newLinkText)">+</button>
+        <button class="add-button" ng-click="vm.addLink(newLinkText)">ADD LINK +</button>
     </div>
 
     <table class="card data-table">
@@ -16,15 +16,15 @@
             <tr class="row">
                 <th class="title" ng-class="{ 'sorted': vm.sortOptions.sortType == 'text' }">
                     <span ng-show="vm.sortOptions.sortType == 'text'">
-                        <img class="arrow-down" src="../../../assets/svg/ic_arrow_downward_black_18px.svg" ng-if="!vm.sortOptions.sortReverse">
-                        <img class="arrow-up" src="../../../assets/svg/ic_arrow_upward_black_18px.svg" ng-if="vm.sortOptions.sortReverse">
+                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="!vm.sortOptions.sortReverse">
+                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="vm.sortOptions.sortReverse">
                     </span>
                     <a class="cell-text" href="" ng-click="vm.setSortOptions({ sortType: 'text', sortReverse: !vm.sortOptions.sortReverse})">Link</a>
                 </th>
                 <th class="clicks" ng-class="{ 'sorted': vm.sortOptions.sortType == 'clicks' }">
                     <span ng-show="vm.sortOptions.sortType == 'clicks'">
-                        <img class="arrow-down" src="../../../assets/svg/ic_arrow_downward_black_18px.svg" ng-if="vm.sortOptions.sortReverse">
-                        <img class="arrow-up" src="../../../assets/svg/ic_arrow_upward_black_18px.svg" ng-if="!vm.sortOptions.sortReverse">
+                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="vm.sortOptions.sortReverse">
+                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="!vm.sortOptions.sortReverse">
                     </span>
                     <a class="cell-text" href="" ng-click="vm.setSortOptions({ sortType: 'clicks', sortReverse: !vm.sortOptions.sortReverse})">Clicks</a>
                 </th>
@@ -54,7 +54,7 @@
                 
                 <td class="delete">
                     <a href="" ng-click="vm.removeLink(link)">
-                        <img src="../public/img/svg/ic_delete_black_18px.svg">
+                        <img src="../public/img/svg/delete.svg">
                     </a>
                 </td>
             </tr>
