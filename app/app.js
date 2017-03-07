@@ -2,28 +2,31 @@
  * Grapeviin - Angular 1.6
  */
 angular
-  .module('grapeviin', ['ui.router'])
-  .config(function($stateProvider, $urlRouterProvider) {
-      // if no route  provided, default to root URI
-      $urlRouterProvider.otherwise('/');
-
-      // setup base route
-      $stateProvider
-        .state('home', {
-          url: '/',
-          templateUrl: 'app/pages/home/home.view.html',
-          controller: 'HomeController as vm'
-        })
-        
-        // landing page route
-        .state('landing', {
-          url: '/landing/?link=',
-          templateUrl: 'app/pages/landing/landing.view.html',
-          controller: 'LandingController as vm'
-        });
-
+  .module('grapeviin', ['ngRoute'])
+  .config(function($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'app/pages/home/home.view.html',
+        controller: 'HomeController as vm'
+      })
+      .when('/landing/:link', {
+        templateUrl: 'app/pages/landing/landing.view.html',
+        controller: 'LandingController as vm'
+      })
+      .when('/:link', {
+        redirectTo: function(route, path, search) {
+          return "/landing/" + route.link;
+        }
+      })
+      // .when('/404', {
+      //   templateUrl: 'app/pages/404.html',
+      //   controller: function($scope) {}
+      // })
+      .otherwise({
+        redirectTo: '/'
+      });
   })
 
   .run(function() {
-      console.log("Ready to drink!");
+      console.log("Ready to link!");
   });

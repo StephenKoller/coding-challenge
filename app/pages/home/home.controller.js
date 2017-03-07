@@ -1,5 +1,5 @@
 angular.module('grapeviin')
-.controller('HomeController', function ($stateParams, LinkService) {
+.controller('HomeController', function ($scope, $routeParams, LinkService) {
   var vm = this;
   vm.LinkService = LinkService;
 
@@ -28,7 +28,7 @@ angular.module('grapeviin')
 
   // CRUD Operations - for a slim controller, pass calls to service layer
   vm.addLink = function(text) {
-    vm.LinkService.addLink(text);
+      vm.LinkService.addLink(text);
   };
 
   vm.removeLink = function(link) {

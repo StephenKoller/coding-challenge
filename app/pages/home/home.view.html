@@ -41,7 +41,7 @@
                 <td class="title">
                     <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
                     <button ng-if="link.editing" ng-click="vm.saveLink(link, vm.editLinkText)">Save</button>
-                    <a ng-href="#!/landing/?link={{vm.LinkService.links[$index].text}}" ng-hide="link.editing">{{link.text}}</a>
+                    <a ng-href="#!/landing/{{link.text}}" ng-hide="link.editing">{{link.text}}</a>
                 </td>
                 
                 <td class="clicks">
@@ -54,7 +54,7 @@
                 
                 <td class="delete">
                     <a href="" ng-click="vm.removeLink(link)">
-                        <img src="../../../assets/svg/ic_delete_black_18px.svg">
+                        <img src="../public/img/svg/ic_delete_black_18px.svg">
                     </a>
                 </td>
             </tr>
