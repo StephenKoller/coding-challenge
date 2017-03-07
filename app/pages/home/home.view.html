@@ -28,7 +28,9 @@
                     </span>
                     <a class="cell-text" href="" ng-click="vm.setSortOptions({ sortType: 'clicks', sortReverse: !vm.sortOptions.sortReverse})">Clicks</a>
                 </th>
-                <th class="edit"><span class="cell-text">Edit</span></th>
+                <th class="edit">
+                    <span class="cell-text">Edit</span>
+                </th>
                 <th class="delete">
                     <span class="cell-text">Delete</span>
                 </th>
@@ -39,10 +41,17 @@
                 <td class="title">
                     <input type="text" ng-if="link.editing" ng-init="vm.editLinkText = link.text;" ng-model="vm.editLinkText"></input>
                     <button ng-if="link.editing" ng-click="vm.saveLink(link, vm.editLinkText)">Save</button>
-                    <a ui-sref="landing({link: '{{vm.LinkService.links[$index].text}}'})" ng-hide="link.editing">{{link.text}}</a>
+                    <a ng-href="#!/landing/?link={{vm.LinkService.links[$index].text}}" ng-hide="link.editing">{{link.text}}</a>
                 </td>
-                <td class="clicks">{{link.clicks}}</td>
-                <td class="edit"><a href="" ng-click="vm.editLink(link)">Edit</a></td>
+                
+                <td class="clicks">
+                    {{link.clicks}}
+                </td>
+                
+                <td class="edit">
+                    <a href="" ng-click="vm.editLink(link)">Edit</a>
+                </td>
+                
                 <td class="delete">
                     <a href="" ng-click="vm.removeLink(link)">
                         <img src="../../../assets/svg/ic_delete_black_18px.svg">
