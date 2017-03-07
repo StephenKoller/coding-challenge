@@ -4,17 +4,20 @@ angular.module('grapeviin')
     links: []
 	};
 
+  // Get all
   service.getLinks = function() {
-    var localLinks = localStorage.getItem('links');
-    if(localLinks != null) {
-      service.links = JSON.parse(localLinks);
+    var _links = localStorage.getItem('links');
+    if(_links != null) {
+      service.links = JSON.parse(_links);
     }
   };
 
+  // Get one
   service.getLinkByText = function(text) {
     return service.links.find(function(link) { return link.text === text });
   };
 
+  // Create
   service.addLink = function(text) {
     service.links.push({
       text: text,
@@ -24,6 +27,7 @@ angular.module('grapeviin')
     _storeLinks();
   };
 
+  // Turn on editing
   service.editLink = function(link) {
     var index = service.links.indexOf(link);
 
@@ -38,6 +42,7 @@ angular.module('grapeviin')
     }
   };
 
+  // Update
   service.saveLink = function(link, text) {
     var index = service.links.indexOf(link);
 
@@ -47,6 +52,7 @@ angular.module('grapeviin')
     _storeLinks();
   }
 
+  // Delete
   service.removeLink = function(link) {
     var index = service.links.indexOf(link);
 
@@ -57,16 +63,16 @@ angular.module('grapeviin')
     _storeLinks();
   };
 
+  // Update: Add to view / click counter
   service.incrementLink = function(link) {
     var index = service.links.indexOf(link);
 
-    // increment the actual link click counter
     service.links[index].clicks += 1;
 
     _storeLinks();
   };
 
-  // shared local method to store links array in localStorage as stringified JSON
+  // Local helper method to store links array
   var _storeLinks = function() {
     localStorage.setItem('links', JSON.stringify(service.links));
   };
