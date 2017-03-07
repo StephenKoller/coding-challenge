@@ -1,16 +1,7 @@
 angular.module('grapeviin')
 .service('LinkService', function() {
 	var service = {
-    links: [
-        {
-          text: 'foo',
-          clicks: 0,
-        },
-        {
-          text: 'bar',
-          clicks: 0,
-        }
-      ]
+    links: []
 	};
 
   service.getLinks = function() {
@@ -79,6 +70,7 @@ angular.module('grapeviin')
   var _storeLinks = function() {
     localStorage.setItem('links', JSON.stringify(service.links));
   };
-
+  
+  service.getLinks();
   return service;
 });
