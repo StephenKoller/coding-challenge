@@ -35,6 +35,9 @@ gulp.task('build', function() {
     }))
     .pipe(gulp.dest('public/js'));
 
-  gulp.src(['app/pages/**/*.html'])
+  gulp.src('index.html')
+    .pipe(gulp.dest('public'));
+
+  gulp.src('app/pages/**/*.html')
     .pipe(gulp.dest('public/html'));
 });
