@@ -23,7 +23,7 @@ Unfortunately, I was unable to implement a redirect to `/landing/?link={linkName
 
 If I were to spend more time on this, I would like to add form validation to prevent users from entering duplicate links or whitespace characters. I would also like to wire it up to a Node / Express API and a Postgres database to make it a full-stack project.
 
-#### Tech Stack:
+#### Tech Stack
 * Angular 1.6
 * Angular Route
 * Gulp for SCSS compilation & resource prep
@@ -32,5 +32,5 @@ If I were to spend more time on this, I would like to add form validation to pre
 
 While the directions asked for a deployment on Heroku, I went with Firebase due to the static nature of my site (dynos and DBs are not needed to run Grapeviin).
 
-### Application Link
+#### Application Link
 [https://grapevi.in/](https://grapevi.in/)
