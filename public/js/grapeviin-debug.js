@@ -6,11 +6,11 @@ angular
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'public/html/home/home.view.html',
+        templateUrl: 'html/home/home.view.html',
         controller: 'HomeController as vm'
       })
       .when('/landing/:link', {
-        templateUrl: 'public/html/landing/landing.view.html',
+        templateUrl: 'html/landing/landing.view.html',
         controller: 'LandingController as vm'
       })
       .when('/:link', {
@@ -19,7 +19,7 @@ angular
         }
       })
       // .when('/404', {
-      //   templateUrl: 'public/html/404.html',
+      //   templateUrl: 'html/404.html',
       //   controller: function($scope) {}
       // })
       .otherwise({

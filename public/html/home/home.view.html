@@ -16,15 +16,15 @@
             <tr class="row">
                 <th class="title" ng-class="{ 'sorted': vm.sortOptions.type == 'text' }">
                     <span ng-show="vm.sortOptions.type == 'text'">
-                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="!vm.sortOptions.reverse">
-                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="vm.sortOptions.reverse">
+                        <img class="arrow-down" src="../../img/svg/arrow-down.svg" ng-if="!vm.sortOptions.reverse">
+                        <img class="arrow-up" src="../../img/svg/arrow-up.svg" ng-if="vm.sortOptions.reverse">
                     </span>
                     <a class="cell-text" href="" ng-click="vm.setSortOptions({ type: 'text', reverse: !vm.sortOptions.reverse})">Link</a>
                 </th>
                 <th class="clicks" ng-class="{ 'sorted': vm.sortOptions.type == 'clicks' }">
                     <span ng-show="vm.sortOptions.type == 'clicks'">
-                        <img class="arrow-down" src="../../../assets/svg/arrow-down.svg" ng-if="vm.sortOptions.reverse">
-                        <img class="arrow-up" src="../../../assets/svg/arrow-up.svg" ng-if="!vm.sortOptions.reverse">
+                        <img class="arrow-down" src="../../img/svg/arrow-down.svg" ng-if="vm.sortOptions.reverse">
+                        <img class="arrow-up" src="../../img/svg/arrow-up.svg" ng-if="!vm.sortOptions.reverse">
                     </span>
                     <a class="cell-text" href="" ng-click="vm.setSortOptions({ type: 'clicks', reverse: !vm.sortOptions.reverse})">Clicks</a>
                 </th>
@@ -54,7 +54,7 @@
                 
                 <td class="delete">
                     <a href="" ng-click="vm.removeLink(link)">
-                        <img src="../public/img/svg/delete.svg">
+                        <img src="../img/svg/delete.svg">
                     </a>
                 </td>
             </tr>
