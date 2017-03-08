@@ -3,9 +3,12 @@
   text-align: center;
   
   > .header {
+    display: inline-flex;
+    align-items: center;
+
     > .headline {
       font-size: 36px;
-      margin: 30px;
+      margin: 30px 30px 30px 10px;
     }
   }
 }
