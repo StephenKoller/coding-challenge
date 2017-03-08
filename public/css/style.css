@@ -113,7 +113,8 @@ table {
   width: 336px; }
   .input-form > .link-input {
     border: 0;
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #eee;
+    width: 239px; }
   .input-form > .link-input,
   .input-form > .add-button {
     height: 40px;
@@ -128,9 +129,12 @@ table {
 
 .home-page {
   text-align: center; }
-  .home-page > .header > .headline {
-    font-size: 36px;
-    margin: 30px; }
+  .home-page > .header {
+    display: inline-flex;
+    align-items: center; }
+    .home-page > .header > .headline {
+      font-size: 36px;
+      margin: 30px 30px 30px 10px; }
 
 .landing-page > .headline {
   margin: 30px auto 10px;
