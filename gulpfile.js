@@ -25,7 +25,8 @@ gulp.task('watch', ['sass'], function() {
 
 gulp.task('build', function() {
   gulp.src(['app/app.js', 'app/**/*.js'])
-    .pipe(replace('app/pages','public/html'))
+    .pipe(replace('app/pages','html'))
+    .pipe(replace('public/',''))
     .pipe(concat('grapeviin.js'))
     .pipe(minify({
         ext:{
@@ -36,8 +37,12 @@ gulp.task('build', function() {
     .pipe(gulp.dest('public/js'));
 
   gulp.src('index.html')
+    .pipe(replace('./public/', './'))
+    .pipe(replace('public/','/'))
     .pipe(gulp.dest('public'));
 
   gulp.src('app/pages/**/*.html')
+    .pipe(replace('public/',''))
+    .pipe(replace('../assets','img'))
     .pipe(gulp.dest('public/html'));
 });
