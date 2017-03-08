@@ -18,10 +18,6 @@ angular
           return "/landing/" + route.link;
         }
       })
-      // .when('/404', {
-      //   templateUrl: 'html/404.html',
-      //   controller: function($scope) {}
-      // })
       .otherwise({
         redirectTo: '/'
       });
