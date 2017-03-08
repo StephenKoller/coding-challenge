@@ -32,9 +32,7 @@ table {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .data-table {
-  margin: 0 auto;
-  max-width: 80vw;
-  min-width: 50vw; }
+  margin: 0 auto; }
   .data-table > .head > .header {
     height: 64px;
     font-size: 20px;
@@ -112,8 +110,7 @@ table {
 
 .input-form {
   margin: 0 auto 30px;
-  max-width: 80vw;
-  min-width: 50vw; }
+  width: 336px; }
   .input-form > .link-input {
     border: 0;
     border-bottom: 1px solid #eee; }
